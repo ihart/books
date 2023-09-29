@@ -1,4 +1,4 @@
-type Book = {
+export type Book = {
   cover_i: number,
   has_fulltext: boolean,
   edition_count: number,
@@ -11,8 +11,10 @@ type Book = {
   public_scan_b: boolean
 }
 
+export type Books = Array<Book | null>
+
 export interface APIData {
-  start: number,
-  num_found: number,
-  docs: Array<Book>
+  start: number | null,
+  num_found: number | null,
+  docs: Books
 }

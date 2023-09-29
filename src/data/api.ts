@@ -1,9 +1,15 @@
 import { useState } from 'react'
 
-import { APIData } from './types'
+import { Book, APIData } from './types'
 
-const useOpenLibraryAPI = (): [() => void, APIData | null, TypeError | null] => {
-  const [data, setData] = useState<APIData | null>(null)
+const initialData:APIData = {
+  start: null,
+  num_found: null,
+  docs: []
+}
+
+export const useOpenLibraryAPI = (): [() => void, APIData, TypeError | null] => {
+  const [data, setData] = useState<APIData>(initialData)
   const [errorMsg, setErrorMsg] = useState<any>(null)
 
   const getData = async () => {
@@ -19,6 +25,6 @@ const useOpenLibraryAPI = (): [() => void, APIData | null, TypeError | null] => 
   return [getData, data, errorMsg]
 }
 
-export {
-  useOpenLibraryAPI
+export const getBooksFromData = (data: APIData) => {
+  return data.docs
 }
