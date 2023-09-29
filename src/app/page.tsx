@@ -1,7 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
+import { useOpenLibraryAPI } from '../data/api'
 import { SearchContext } from './searchContext'
 import Search from '../components/search'
 
@@ -9,6 +10,13 @@ const Home = () => {
   // TODO: Optimise with useMemo and useCallback.
   // NOTE: This is where we could set the default value to be derived from somewhere else (e.g Redux, slug, querystring etc).
   const [searchTerm, setSearchTerm] = useState<string>('')
+
+  const [getBookData, bookData, errorMessage] = useOpenLibraryAPI()
+
+  // TEST: Call API after initial render.
+  useEffect(() => {
+    getBookData()
+  }, [])
 
   return <main>
     <h1>Books books books</h1>
