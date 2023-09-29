@@ -3,7 +3,7 @@
 import { useState } from 'react'
 
 import { SearchContext } from './searchContext'
-import Search from './components/search'
+import Search from '../components/search'
 
 const Home = () => {
   // TODO: Optimise with useMemo and useCallback.

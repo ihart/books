@@ -1,7 +1,7 @@
 'use client'
 
 import { useContext, useState } from 'react'
-import { SearchContext } from '../searchContext'
+import { SearchContext } from '../app/searchContext'
 
 const Search = () => {
   const {searchTerm, setSearchTerm} = useContext(SearchContext)
