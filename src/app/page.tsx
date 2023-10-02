@@ -18,11 +18,15 @@ const Home = () => {
 
   const [books, setBooks] = useState<Books>([])
 
+  const [isSearching, setIsSearching] = useState<Boolean>(false)
+
   const performSearch = () => {
+    setIsSearching(true)
     getBookData(searchTerm)
   }
 
   useEffect(() => {
+    setIsSearching(false)
     setBooks(getBooksFromData(bookData))
   }, [bookData])
 
@@ -30,7 +34,8 @@ const Home = () => {
     <h1>Books books books</h1>
     <SearchContext.Provider value={{ searchTerm, setSearchTerm, performSearch }}>
       <Search />
-      <BookList books={books} />
+      {isSearching && <p>Searching...</p>}
+      {!isSearching && <BookList books={books} />}
     </SearchContext.Provider>
   </main>
 }
