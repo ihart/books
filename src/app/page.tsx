@@ -17,11 +17,12 @@ const Home = () => {
   const [searchTerm, setSearchTerm] = useState<string>('')
 
   const [books, setBooks] = useState<Books>([])
-
   const [isSearching, setIsSearching] = useState<Boolean>(false)
+  const [hasSearched, setHasSearched] = useState<Boolean>(false)
 
   const performSearch = () => {
     setIsSearching(true)
+    setHasSearched(true)
     getBookData(searchTerm)
   }
 
@@ -34,8 +35,9 @@ const Home = () => {
     <h1>Books books books</h1>
     <SearchContext.Provider value={{ searchTerm, setSearchTerm, performSearch }}>
       <Search />
-      {isSearching && <p>Searching...</p>}
-      {!isSearching && <BookList books={books} />}
+      {!errorMessage && isSearching && <p>Searching...</p>}
+      {!errorMessage && !isSearching && hasSearched && <BookList books={books} />}
+      {errorMessage && errorMessage.toString()}
     </SearchContext.Provider>
   </main>
 }
