@@ -18,11 +18,10 @@ const Home = () => {
 
   const [books, setBooks] = useState<Books>([])
 
-  // TEST: Call API after initial render.
-  // TODO: Only call this when searchTerm changes and debounce the call.
-  useEffect(() => {
-    getBookData()
-  }, [])
+  const performSearch = () => {
+    console.log('performSearch for', searchTerm)
+    // getBookData(searchTerm)
+  }
 
   useEffect(() => {
     setBooks(getBooksFromData(bookData))
@@ -30,7 +29,7 @@ const Home = () => {
 
   return <main>
     <h1>Books books books</h1>
-    <SearchContext.Provider value={{ searchTerm, setSearchTerm }}>
+    <SearchContext.Provider value={{ searchTerm, setSearchTerm, performSearch }}>
       <Search />
       <BookList books={books} />
     </SearchContext.Provider>
