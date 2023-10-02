@@ -15,10 +15,10 @@ const Home = () => {
   // TODO: Optimise with useMemo and useCallback.
   // NOTE: This is where we could set the default value to be derived from somewhere else (e.g Redux, slug, querystring etc).
   const [searchTerm, setSearchTerm] = useState<string>('')
+  const [isSearching, setIsSearching] = useState<boolean>(false)
 
   const [books, setBooks] = useState<Books>([])
-  const [isSearching, setIsSearching] = useState<Boolean>(false)
-  const [hasSearched, setHasSearched] = useState<Boolean>(false)
+  const [hasSearched, setHasSearched] = useState<boolean>(false)
 
   const performSearch = () => {
     setIsSearching(true)
@@ -33,7 +33,7 @@ const Home = () => {
 
   return <main>
     <h1>Books books books</h1>
-    <SearchContext.Provider value={{ searchTerm, setSearchTerm, performSearch }}>
+    <SearchContext.Provider value={{ searchTerm, setSearchTerm, performSearch, isSearching, setIsSearching }}>
       <Search />
       {!errorMessage && isSearching && <p>Searching...</p>}
       {!errorMessage && !isSearching && hasSearched && <BookList books={books} />}

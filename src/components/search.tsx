@@ -4,7 +4,7 @@ import { useContext, useState } from 'react'
 import { SearchContext } from '../app/searchContext'
 
 const Search = () => {
-  const {searchTerm, setSearchTerm, performSearch} = useContext(SearchContext)
+  const {searchTerm, setSearchTerm, performSearch, isSearching} = useContext(SearchContext)
 
   const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value)
@@ -21,7 +21,7 @@ const Search = () => {
       Search by book title:
     </label>
     <input className={'bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500'} id={'search-term'} type={'text'} onChange={handleChange} onKeyDown={handleKeyDown} value={searchTerm} />
-    <button className={'shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded'} onClick={performSearch} type="button">
+    <button className={'shadow bg-blue-500 disabled:bg-gray-400 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded'} onClick={performSearch} type="button" disabled={isSearching}>
       Search
     </button>
   </div>
