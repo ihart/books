@@ -8,13 +8,13 @@ const initialData:APIData = {
   docs: []
 }
 
-export const useOpenLibraryAPI = (): [() => void, APIData, TypeError | null] => {
+export const useOpenLibraryAPI = (): [(query:string) => void, APIData, TypeError | null] => {
   const [data, setData] = useState<APIData>(initialData)
   const [errorMsg, setErrorMsg] = useState<any>(null)
 
-  const getData = async () => {
+  const getData = async (query:string) => {
     try {
-      const data = await(await fetch('https://openlibrary.org/search.json?q=the+lord+of+the+rings')).json()
+      const data = await(await fetch(`https://openlibrary.org/search.json?title=${encodeURI(query)}`)).json()
       setData(data)
       setErrorMsg(null)
     } catch (error) {

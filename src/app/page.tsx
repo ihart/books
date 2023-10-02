@@ -19,8 +19,7 @@ const Home = () => {
   const [books, setBooks] = useState<Books>([])
 
   const performSearch = () => {
-    console.log('performSearch for', searchTerm)
-    // getBookData(searchTerm)
+    getBookData(searchTerm)
   }
 
   useEffect(() => {
