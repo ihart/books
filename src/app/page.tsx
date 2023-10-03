@@ -38,10 +38,14 @@ const Home = () => {
     <h1>Books books books</h1>
     <SearchContext.Provider value={{ searchTerm, setSearchTerm, performSearch, isSearching, setIsSearching }}>
       <Search />
-      {!errorMessage && isSearching && <p>Searching...</p>}
-      {!errorMessage && !isSearching && hasSearched && <BookList books={books} />}
-      {errorMessage && errorMessage.toString()}
     </SearchContext.Provider>
+    {hasSearched && 
+      <div>  
+        {!errorMessage && isSearching && <p>Searching...</p>}
+        {!errorMessage && !isSearching && <BookList books={books} />}
+        {errorMessage && errorMessage.toString()}
+      </div>
+    }
   </main>
 }
 
