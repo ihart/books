@@ -35,7 +35,7 @@ const App = () => {
   }, [bookData])
 
   return <main className={'container mx-auto max-w-3xl'}>
-    <h1 className={'text-5xl text-center pt-12 pb-12'}>Books books books!</h1>
+    <h1 className={'text-5xl text-center pt-24 pb-12'}>Books books books!</h1>
     <SearchContext.Provider value={{ searchTerm, setSearchTerm, performSearch, isSearching, setIsSearching }}>
       <Search />
     </SearchContext.Provider>
