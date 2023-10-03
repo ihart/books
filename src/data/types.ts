@@ -8,7 +8,11 @@ export type Book = {
   key: string,
   ia: Array<string>,
   author_key: Array<string>,
-  public_scan_b: boolean
+  public_scan_b: boolean,
+  subject: Array<string>,
+  number_of_pages_median: number,
+  first_sentence: Array<string>,
+  time: string
 }
 
 export type Books = Array<Book | null>

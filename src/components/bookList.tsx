@@ -1,5 +1,7 @@
 import { Fragment } from 'react'
-import { Books } from '@/data/types'
+import { Book as BookType, Books } from '@/data/types'
+
+import Book from '@/components/book'
 
 interface BookListProps {
   books: Books
@@ -13,7 +15,7 @@ const BookList = ({ books }: BookListProps) => {
       <div>
         <p>{books.length} result{books.length > 1 ? 's': ''}</p>
         <ul>
-          {books.map((book, i) => <li key={`book=-${i}`}>{book?.title}</li>)}  
+          {books.map((book, i) => <li key={`book=-${i}`}><Book book={book}/></li>)}
         </ul>
       </div>
     }
