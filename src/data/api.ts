@@ -9,6 +9,8 @@ const initialData:APIData = {
 }
 
 export const useOpenLibraryAPI = (): [(query:string) => void, APIData, TypeError | null] => {
+  // TODO: Do not fetch when query is empty string.
+
   const [data, setData] = useState<APIData>(initialData)
   const [errorMsg, setErrorMsg] = useState<any>(null)
 
