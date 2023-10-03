@@ -9,7 +9,7 @@ import { SearchContext } from './searchContext'
 import Search from '../components/search'
 import BookList from '../components/bookList'
 
-const Home = () => {
+const App = () => {
   const [getBookData, bookData, errorMessage] = useOpenLibraryAPI()
 
   // Flags and functions for Search Context.
@@ -34,8 +34,8 @@ const Home = () => {
     setBooks(getBooksFromData(bookData))
   }, [bookData])
 
-  return <main>
-    <h1>Books books books</h1>
+  return <main className={'container mx-auto max-w-3xl'}>
+    <h1 className={'text-5xl text-center pt-12 pb-12'}>Books books books!</h1>
     <SearchContext.Provider value={{ searchTerm, setSearchTerm, performSearch, isSearching, setIsSearching }}>
       <Search />
     </SearchContext.Provider>
@@ -49,4 +49,4 @@ const Home = () => {
   </main>
 }
 
-export default Home
+export default App
