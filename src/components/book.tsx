@@ -14,15 +14,16 @@ const Book = ({ book }: BookProps) => {
 
   return <Fragment>
     {book &&
-      <div onClick={handleClick}>
-        <p>{book.title}</p>
+      <div className={`bg-slate-50 p-2 hover:cursor-pointer hover:bg-slate-100`} onClick={handleClick}>
+        <p>{book.title} – {book?.author_name?.join(', ')}</p>
         {isActive &&
           <Fragment>
-            <p>Written by {book.author_name.join(', ')}</p>
-            <p>First published in {book.first_publish_year}</p>
-            {book.time && <p>Set in {book.time[0]}</p>}
-            <p>Number of pages: {book.number_of_pages_median}</p>
-            {book.first_sentence && <blockquote>{book.first_sentence[0]}</blockquote>}
+            <p>
+              First published in {book.first_publish_year}
+              {book.time && <span> and set in {book.time[0]}</span>}
+              {' '} with {book.number_of_pages_median} pages.
+            </p>
+            {book.first_sentence && <blockquote>&ldquo;{book.first_sentence[0]}&rdquo;</blockquote>}
           </Fragment>
         }
       </div>

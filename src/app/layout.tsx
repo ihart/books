@@ -5,7 +5,7 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Books books books',
+  title: 'Books!',
   description: 'An example web application for book searching using the Open Library Search API',
 }
 

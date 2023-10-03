@@ -34,16 +34,16 @@ const App = () => {
     setBooks(getBooksFromData(bookData))
   }, [bookData])
 
-  return <main className={'container mx-auto max-w-3xl'}>
-    <h1 className={'text-5xl text-center pt-24 pb-12'}>Books books books!</h1>
+  return <main className={'container mx-auto max-w-3xl py-24'}>
+    <h1 className={'text-5xl text-center pb-12'}>Books!</h1>
     <SearchContext.Provider value={{ searchTerm, setSearchTerm, performSearch, isSearching, setIsSearching }}>
       <Search />
     </SearchContext.Provider>
     {hasSearched && 
       <div>  
-        {!errorMessage && isSearching && <p>Searching...</p>}
+        {!errorMessage && isSearching && <p className={'text-sm py-4'}>Searching...</p>}
         {!errorMessage && !isSearching && <BookList books={books} />}
-        {errorMessage && errorMessage.toString()}
+        {errorMessage && <p className={'py-4'}>{errorMessage.toString()}</p>}
       </div>
     }
   </main>

@@ -1,4 +1,4 @@
-# Books books books!
+# Books!
 
 An example web application built with NextJS (bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app)) using the [Open Library Search API](https://openlibrary.org/dev/docs/api/search).
 
