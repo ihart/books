@@ -15,7 +15,7 @@ const BookList = ({ books }: BookListProps) => {
       <div>
         <p className={'text-sm py-4'}>{books.length} result{books.length > 1 ? 's': ''}</p>
         <ul>
-          {books.map((book, i) => <li key={`book=-${i}`}><Book book={book}/></li>)}
+          {books.map((book, i) => <li className={'mb-px'} key={`book=-${i}`}><Book book={book}/></li>)}
         </ul>
       </div>
     }

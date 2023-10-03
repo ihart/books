@@ -18,12 +18,12 @@ const Book = ({ book }: BookProps) => {
         <p>{book.title} – {book?.author_name?.join(', ')}</p>
         {isActive &&
           <Fragment>
-            <p>
+            <p className={'pt-4 text-sm'}>
               First published in {book.first_publish_year}
               {book.time && <span> and set in {book.time[0]}</span>}
               {' '} with {book.number_of_pages_median} pages.
             </p>
-            {book.first_sentence && <blockquote>&ldquo;{book.first_sentence[0]}&rdquo;</blockquote>}
+            {book.first_sentence && <blockquote className={'text-sm italic'}>&ldquo;{book.first_sentence[0]}&rdquo;</blockquote>}
           </Fragment>
         }
       </div>
