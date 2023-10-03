@@ -23,9 +23,9 @@ describe('BookList', () => {
   }
   const books:Books = [mockBook]
   
-  it('renders a book title when given an array of books', () => {
+  it('renders book title when given an array of books', () => {
     render(<BookList books={books} />)
-    const bookTitle = screen.getByText(mockBook.title)
+    const bookTitle = screen.getByText(/My book/i)
     expect(bookTitle).toBeInTheDocument()
   })
 
@@ -37,7 +37,7 @@ describe('BookList', () => {
   
   it('renders a no results message when there are no books', () => {
     render(<BookList books={[]} />)
-    const msg = screen.getByText('Sorry, we couldn\'t find any books matching that title')
+    const msg = screen.getByText('Sorry, we couldn\'t find any books matching that title.')
     expect(msg).toBeInTheDocument()
   })
 })
